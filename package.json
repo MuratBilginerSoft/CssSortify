@@ -1,0 +1,117 @@
+{
+  "name": "csssortify",
+  "displayName": "CssSortify",
+  "description": "Smart CSS property sorter with multiple sorting options (length/alphabetical) and multi-language support. Keep your stylesheets clean and organized with intelligent formatting.",
+  "version": "0.0.1",
+  "publisher": "brainytechs",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Formatters"
+  ],
+  "keywords": [
+    "css",
+    "sort",
+    "formatting",
+    "properties",
+    "style"
+  ],
+  "galleryBanner": {
+    "color": "#C80000",
+    "theme": "dark"
+  },
+  "icon": "images/icon.png",
+  "activationEvents": [],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "csssortify.sortByLength",
+        "title": "Sort CSS Properties by Length (Descending)"
+      },
+      {
+        "command": "csssortify.sortByLengthAsc",
+        "title": "Sort CSS Properties by Length (Ascending)"
+      },
+      {
+        "command": "csssortify.sortAlphabetically",
+        "title": "Sort CSS Properties Alphabetically (A-Z)"
+      },
+      {
+        "command": "csssortify.sortAlphabeticallyDesc",
+        "title": "Sort CSS Properties Alphabetically (Z-A)"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "when": "resourceLangId == css",
+          "command": "csssortify.sortByLength",
+          "group": "1_modification"
+        },
+        {
+          "when": "resourceLangId == css",
+          "command": "csssortify.sortByLengthAsc",
+          "group": "1_modification"
+        },
+        {
+          "when": "resourceLangId == css",
+          "command": "csssortify.sortAlphabetically",
+          "group": "1_modification"
+        },
+        {
+          "when": "resourceLangId == css",
+          "command": "csssortify.sortAlphabeticallyDesc",
+          "group": "1_modification"
+        }
+      ]
+    },
+    "keybindings": [
+      {
+        "command": "csssortify.sortByLength",
+        "key": "ctrl+alt+s",
+        "when": "editorTextFocus && resourceLangId == css"
+      },
+      {
+        "command": "csssortify.sortByLengthAsc",
+        "key": "ctrl+alt+a",
+        "when": "editorTextFocus && resourceLangId == css"
+      },
+      {
+        "command": "csssortify.sortAlphabetically",
+        "key": "ctrl+alt+z",
+        "when": "editorTextFocus && resourceLangId == css"
+      },
+      {
+        "command": "csssortify.sortAlphabeticallyDesc",
+        "key": "ctrl+alt+x",
+        "when": "editorTextFocus && resourceLangId == css"
+      }
+    ]
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "node ./test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.85.0",
+    "@types/mocha": "^10.0.6",
+    "@types/node": "18.x",
+    "eslint": "^8.54.0",
+    "glob": "^10.3.10",
+    "mocha": "^10.2.0",
+    "typescript": "^5.3.2",
+    "@vscode/test-electron": "^2.3.8"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MuratBilginerSoft/CssSortify.git"
+  },
+  "bugs": {
+    "url": "https://github.com/MuratBilginerSoft/CssSortify/issues"
+  },
+  "homepage": "https://github.com/MuratBilginerSoft/CssSortify#readme",
+  "l10n": "./package.nls.json"
+}

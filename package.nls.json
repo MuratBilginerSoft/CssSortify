@@ -1,0 +1,13 @@
+{
+    "csslengthify.description": "Sort CSS properties by character length and alphabetically",
+    "csslengthify.sortByLength.title": "CSS: Sort Properties by Length (Descending)",
+    "csslengthify.sortByLengthAsc.title": "CSS: Sort Properties by Length (Ascending)",
+    "csslengthify.sortAlphabetically.title": "CSS: Sort Properties Alphabetically (A-Z)",
+    "csslengthify.sortAlphabeticallyDesc.title": "CSS: Sort Properties Alphabetically (Z-A)",
+    "csslengthify.error.notCssFile": "This command only works in CSS files!",
+    "csslengthify.error.noFileOpen": "Please open a file!",
+    "csslengthify.success.lengthDesc": "CSS properties sorted by length (descending)! 🎉",
+    "csslengthify.success.lengthAsc": "CSS properties sorted by length (ascending)! 🎉",
+    "csslengthify.success.alphaAsc": "CSS properties sorted alphabetically (A-Z)! 🎉",
+    "csslengthify.success.alphaDesc": "CSS properties sorted alphabetically (Z-A)! 🎉"
+}
