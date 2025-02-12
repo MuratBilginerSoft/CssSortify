@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # CssSortify 🎨
 
 [English](#english) | [Türkçe](#türkçe)
@@ -240,7 +239,6 @@ Ya da:
 ## 📄 Lisans
 
 Bu proje MIT lisansı altında lisanslanmıştır. Daha fazla bilgi için [LICENSE](LICENSE) dosyasına bakın.
+
 =======
-# CssSortify
-Smart CSS property sorter with multiple sorting options
->>>>>>> ef1b36d0f0fa27b7c6db7fc9c45054b1442ef046
+
