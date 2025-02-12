@@ -2,16 +2,14 @@
   "name": "csssortify",
   "displayName": "CssSortify",
   "description": "Smart CSS property sorter with multiple sorting options (length/alphabetical) and multi-language support. Keep your stylesheets clean and organized with intelligent formatting.",
-  "version": "0.0.4",
+  "version": "0.1.2",
   "publisher": "BrainyTech",
   "engines": {
-    "vscode": "^1.85.0",
-    "windsurf": "^1.0.0"
+    "vscode": "^1.85.0"
   },
   "categories": [
     "Formatters",
-    "Programming Languages",
-    "Other"
+    "Programming Languages"
   ],
   "keywords": [
     "css",
@@ -19,9 +17,6 @@
     "formatting",
     "properties",
     "style",
-    "windsurf",
-    "windsurfing",
-    "cursor",
     "css formatter",
     "css sorter"
   ],
@@ -30,7 +25,9 @@
     "theme": "dark"
   },
   "icon": "images/icon.png",
-  "activationEvents": [],
+  "activationEvents": [
+    "onLanguage:css"
+  ],
   "main": "./extension.js",
   "contributes": {
     "commands": [
@@ -99,19 +96,24 @@
     ]
   },
   "scripts": {
+    "vscode:prepublish": "npm run build",
+    "build": "webpack --config webpack.config.js",
+    "watch": "webpack --watch --config webpack.config.js",
     "test": "node ./test/runTest.mjs",
     "package": "vsce package",
     "lint": "eslint ."
   },
   "devDependencies": {
-    "@types/vscode": "^1.85.0",
     "@types/mocha": "^10.0.6",
     "@types/node": "18.x",
+    "@types/vscode": "^1.85.0",
+    "@vscode/test-electron": "^2.3.8",
     "eslint": "^8.54.0",
     "glob": "^10.3.10",
     "mocha": "^10.2.0",
     "typescript": "^5.3.2",
-    "@vscode/test-electron": "^2.3.8"
+    "webpack": "^5.97.1",
+    "webpack-cli": "^6.0.1"
   },
   "repository": {
     "type": "git",
