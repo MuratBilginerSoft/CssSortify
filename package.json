@@ -2,20 +2,27 @@
   "name": "csssortify",
   "displayName": "CssSortify",
   "description": "Smart CSS property sorter with multiple sorting options (length/alphabetical) and multi-language support. Keep your stylesheets clean and organized with intelligent formatting.",
-  "version": "0.0.3",
+  "version": "0.0.2",
   "publisher": "BrainyTech",
   "engines": {
     "vscode": "^1.85.0"
   },
   "categories": [
-    "Formatters"
+    "Formatters",
+    "Programming Languages",
+    "Other"
   ],
   "keywords": [
     "css",
     "sort",
     "formatting",
     "properties",
-    "style"
+    "style",
+    "windsurf",
+    "windsurfing",
+    "cursor",
+    "css formatter",
+    "css sorter"
   ],
   "galleryBanner": {
     "color": "#C80000",
