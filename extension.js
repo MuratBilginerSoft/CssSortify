@@ -1,20 +1,13 @@
-//#region Imports
 const vscode = require('vscode');
 const { getMessage } = require('./messages');
 
-//#endregion
-
-//#region CSS Property Sorting
-function sortCssProperties(text, sortType = 'length-desc') {
+function sortCssProperties(text, sortType) {
     try {
-        // Media query regex'i
         const mediaQueryRegex = /@media[^{]+\{([\s\S]+?}\s*)\}/g;
         let result = '';
         let lastIndex = 0;
         
-        // Media query'leri bul ve içlerindeki CSS'i ayrı ayrı sırala
         text.replace(mediaQueryRegex, (match, cssContent, offset) => {
-            // Media query öncesindeki normal CSS'i ekle
             if (offset > lastIndex) {
                 const normalCss = text.slice(lastIndex, offset).trim();
                 if (normalCss) {
@@ -22,17 +15,13 @@ function sortCssProperties(text, sortType = 'length-desc') {
                 }
             }
             
-            // Media query başlığını al (@media ... {)
             const mediaQueryHeader = match.substring(0, match.indexOf('{') + 1);
-            
-            // Media query içindeki CSS'i işle (bir seviye içeri girinti ile)
             const processedContent = processNormalCss(cssContent, sortType, 1);
             result += `${mediaQueryHeader}\n${processedContent}\n}\n\n`;
             
             lastIndex = offset + match.length;
         });
         
-        // Son media query'den sonraki normal CSS'i ekle
         const remainingCss = text.slice(lastIndex).trim();
         if (remainingCss) {
             result += processNormalCss(remainingCss, sortType, 0);
@@ -45,7 +34,6 @@ function sortCssProperties(text, sortType = 'length-desc') {
 }
 
 function processNormalCss(text, sortType, indentLevel = 0) {
-    // En dıştaki süslü parantezleri bul
     const blocks = [];
     let depth = 0;
     let startIndex = 0;
@@ -73,26 +61,19 @@ function processNormalCss(text, sortType, indentLevel = 0) {
         }
     }
 
-    // Girinti oluştur
     const indent = '    '.repeat(indentLevel);
     const propertyIndent = '    '.repeat(indentLevel + 1);
 
-    // Her bloğu ayrı ayrı işle
     return blocks.map(block => {
-        // Seçici ve içeriği ayır
         const selectorEnd = block.indexOf('{');
         const selector = block.substring(0, selectorEnd).trim();
         const content = block.substring(selectorEnd + 1, block.length - 1);
 
-        // İç içe seçici var mı kontrol et
         if (content.includes('{')) {
-            // İç içe seçicileri işle
             const processedContent = processNormalCss(content, sortType, indentLevel + 1);
             return `${indent}${selector} {\n${processedContent}\n${indent}}`;
         } else {
-            // Sadece CSS özellikleri varsa sırala
-            // Media query içindeyse isNested=true
-            const sortedProperties = sortProperties(content.trim(), sortType, indentLevel > 0);
+            const sortedProperties = sortProperties(content.trim(), sortType);
             return `${indent}${selector} {\n${propertyIndent}${sortedProperties}\n${indent}}`;
         }
     }).join('\n\n');
@@ -146,13 +127,10 @@ function sortProperties(properties, sortType, isNested = false) {
             }
         });
 
-    // Media query içindeyse 8 boşluk (2 tab), değilse 4 boşluk (1 tab)
     const indent = isNested ? '\n        ' : '\n    ';
     return propertyList.join(indent);
 }
-//#endregion
 
-//#region CSS Handler
 function handleCssSort(sortType) {
     try {
         const editor = vscode.window.activeTextEditor;
@@ -162,7 +140,6 @@ function handleCssSort(sortType) {
         const selection = editor.selection;
         const text = document.getText(selection);
 
-        // Seçili alan boşsa tüm dosyayı işle
         if (text.trim().length === 0) {
             const fullText = document.getText();
             const sortedText = sortCssProperties(fullText, sortType);
@@ -177,14 +154,12 @@ function handleCssSort(sortType) {
             });
         }
 
-        // Seçili alanın geçerli bir CSS seçici olup olmadığını kontrol et
         const isValidSelection = isValidCssSelection(text);
         if (!isValidSelection.valid) {
             vscode.window.showErrorMessage(`Geçersiz seçim: ${isValidSelection.error}. Lütfen tam bir CSS seçiciyi seçin (örn: ".class { ... }" veya "#id { ... }")`);
             return;
         }
 
-        // Seçili alanı sırala
         const sortedText = sortCssProperties(text, sortType);
         return editor.edit(editBuilder => {
             editBuilder.replace(selection, sortedText);
@@ -196,12 +171,10 @@ function handleCssSort(sortType) {
 }
 
 function isValidCssSelection(text) {
-    // Boş kontrol
     if (!text.trim()) {
         return { valid: false, error: 'Boş seçim' };
     }
 
-    // Süslü parantez sayısı kontrolü
     const openBraces = (text.match(/\{/g) || []).length;
     const closeBraces = (text.match(/\}/g) || []).length;
 
@@ -213,11 +186,9 @@ function isValidCssSelection(text) {
         return { valid: false, error: 'Açılan ve kapanan süslü parantez sayısı eşit değil' };
     }
 
-    // Seçicinin başlangıç ve bitiş kontrolü
     const firstChar = text.trim()[0];
     const lastChar = text.trim()[text.trim().length - 1];
 
-    // CSS seçicisi karakterleri: . # * [ : > + ~ a-z A-Z _
     const validStartChars = /^[.#*\[a-zA-Z_:]/;
     if (!validStartChars.test(firstChar)) {
         return { valid: false, error: 'Seçim CSS seçicisiyle başlamıyor' };
@@ -227,7 +198,6 @@ function isValidCssSelection(text) {
         return { valid: false, error: 'Seçim süslü parantezle bitmiyor' };
     }
 
-    // Property kontrolü
     const properties = text.substring(text.indexOf('{') + 1, text.lastIndexOf('}')).trim();
     if (!properties) {
         return { valid: false, error: 'Seçici içi boş' };
@@ -235,9 +205,7 @@ function isValidCssSelection(text) {
 
     return { valid: true };
 }
-//#endregion
 
-//#region Extension Lifecycle
 function activate(context) {
     let disposableDesc = vscode.commands.registerCommand('csssortify.sortByLength', () => {
         handleCssSort('length-desc');
@@ -262,11 +230,8 @@ function activate(context) {
 }
 
 function deactivate() {}
-//#endregion
 
-//#region Exports
 module.exports = {
     activate,
     deactivate
-}
-//#endregion
+};
