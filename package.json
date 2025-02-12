@@ -5,7 +5,8 @@
   "version": "0.0.4",
   "publisher": "BrainyTech",
   "engines": {
-    "vscode": "^1.85.0"
+    "vscode": "^1.85.0",
+    "windsurf": "^1.0.0"
   },
   "categories": [
     "Formatters",
@@ -98,9 +99,9 @@
     ]
   },
   "scripts": {
-    "lint": "eslint .",
-    "pretest": "npm run lint",
-    "test": "node ./test/runTest.js"
+    "test": "node ./test/runTest.mjs",
+    "package": "vsce package",
+    "lint": "eslint ."
   },
   "devDependencies": {
     "@types/vscode": "^1.85.0",
