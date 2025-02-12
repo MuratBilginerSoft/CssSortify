@@ -4,6 +4,23 @@ All notable changes to the "CssSortify" extension will be documented in this fil
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## [0.1.3] - 2025-02-12
+
+### Added
+- Added validation for CSS selector selection
+- Added error messages for invalid selections
+- Added support for nested CSS selectors
+- Added proper indentation for media queries
+
+### Fixed
+- Fixed property formatting and semicolon issues
+- Fixed indentation in media queries and nested selectors
+- Fixed multiple spaces between properties
+
+### Changed
+- Improved code organization with webpack bundling
+- Optimized extension size
+
 ## [0.1.2] - 2025-02-12
 
 ### Changed
