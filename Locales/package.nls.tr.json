@@ -1,0 +1,13 @@
+{
+    "csssortify.description": "CSS özelliklerini karakter uzunluğuna ve alfabetik sıraya göre sırala",
+    "csssortify.sortByLength.title": "CSS: Özellikleri Uzunluğa Göre Sırala (Azalan)",
+    "csssortify.sortByLengthAsc.title": "CSS: Özellikleri Uzunluğa Göre Sırala (Artan)",
+    "csssortify.sortAlphabetically.title": "CSS: Özellikleri Alfabetik Sırala (A-Z)",
+    "csssortify.sortAlphabeticallyDesc.title": "CSS: Özellikleri Alfabetik Sırala (Z-A)",
+    "csssortify.error.notCssFile": "Bu komut sadece CSS dosyalarında çalışır!",
+    "csssortify.error.noFileOpen": "Lütfen bir dosya açın!",
+    "csssortify.success.lengthDesc": "CSS özellikleri uzunluğuna göre azalan sırada sıralandı! 🎉",
+    "csssortify.success.lengthAsc": "CSS özellikleri uzunluğuna göre artan sırada sıralandı! 🎉",
+    "csssortify.success.alphaAsc": "CSS özellikleri alfabetik olarak sıralandı (A-Z)! 🎉",
+    "csssortify.success.alphaDesc": "CSS özellikleri alfabetik olarak sıralandı (Z-A)! 🎉"
+}

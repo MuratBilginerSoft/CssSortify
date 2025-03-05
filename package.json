@@ -2,7 +2,7 @@
   "name": "csssortify",
   "displayName": "CssSortify",
   "description": "Smart CSS property sorter with multiple sorting options (length/alphabetical) and multi-language support. Keep your stylesheets clean and organized with intelligent formatting.",
-  "version": "0.1.3",
+  "version": "1.0.0",
   "publisher": "BrainyTech",
   "engines": {
     "vscode": "^1.85.0"
@@ -18,7 +18,10 @@
     "properties",
     "style",
     "css formatter",
-    "css sorter"
+    "css sorter",
+    "html",
+    "minify",
+    "inline styles"
   ],
   "galleryBanner": {
     "color": "#C80000",
@@ -26,71 +29,184 @@
   },
   "icon": "images/icon.png",
   "activationEvents": [
-    "onLanguage:css"
+    "onLanguage:css",
+    "onLanguage:html",
+    "onLanguage:htm"
   ],
   "main": "./extension.js",
   "contributes": {
     "commands": [
       {
         "command": "csssortify.sortByLength",
-        "title": "Sort CSS Properties by Length (Descending)"
+        "title": "Sort By Length (Descending)"
       },
       {
         "command": "csssortify.sortByLengthAsc",
-        "title": "Sort CSS Properties by Length (Ascending)"
+        "title": "Sort By Length (Ascending)"
       },
       {
         "command": "csssortify.sortAlphabetically",
-        "title": "Sort CSS Properties Alphabetically (A-Z)"
+        "title": "Sort Alphabetically (A-Z)"
       },
       {
         "command": "csssortify.sortAlphabeticallyDesc",
-        "title": "Sort CSS Properties Alphabetically (Z-A)"
+        "title": "Sort Alphabetically (Z-A)"
+      },
+      {
+        "command": "csssortify.sortByCategory",
+        "title": "Sort By Category"
+      },
+      {
+        "command": "csssortify.sortByCategoryWithSpacing",
+        "title": "Sort By Category with Spacing"
+      },
+      {
+        "command": "csssortify.extractCssFromHtml",
+        "title": "Extract CSS from HTML to External File"
+      },
+      {
+        "command": "csssortify.convertInlineStylesToClasses",
+        "title": "Convert All Inline Styles to Classes"
+      },
+      {
+        "command": "csssortify.convertSelectedInlineStyleToClass",
+        "title": "Convert Selected Element's Inline Style to Class"
+      },
+      {
+        "command": "csssortify.minifyCss",
+        "title": "Minify CSS and Save as .min.css"
+      },
+      {
+        "command": "csssortify.minifyCssInPlace",
+        "title": "Minify CSS In-Place"
+      }
+    ],
+    "submenus": [
+      {
+        "id": "csssortify.menu",
+        "label": "CssSortify"
       }
     ],
     "menus": {
       "editor/context": [
         {
-          "when": "resourceLangId == css",
+          "when": "resourceLangId == css || resourceLangId == html || resourceLangId == htm",
+          "submenu": "csssortify.menu",
+          "group": "1_modification"
+        }
+      ],
+      "csssortify.menu": [
+        {
           "command": "csssortify.sortByLength",
-          "group": "1_modification"
+          "group": "1_sorting@1",
+          "when": "resourceLangId == css || resourceLangId == html || resourceLangId == htm"
         },
         {
-          "when": "resourceLangId == css",
           "command": "csssortify.sortByLengthAsc",
-          "group": "1_modification"
+          "group": "1_sorting@2",
+          "when": "resourceLangId == css || resourceLangId == html || resourceLangId == htm"
         },
         {
-          "when": "resourceLangId == css",
           "command": "csssortify.sortAlphabetically",
-          "group": "1_modification"
+          "group": "1_sorting@3",
+          "when": "resourceLangId == css || resourceLangId == html || resourceLangId == htm"
         },
         {
-          "when": "resourceLangId == css",
           "command": "csssortify.sortAlphabeticallyDesc",
-          "group": "1_modification"
+          "group": "1_sorting@4",
+          "when": "resourceLangId == css || resourceLangId == html || resourceLangId == htm"
+        },
+        {
+          "command": "csssortify.sortByCategory",
+          "group": "1_sorting@5",
+          "when": "resourceLangId == css || resourceLangId == html || resourceLangId == htm"
+        },
+        {
+          "command": "csssortify.sortByCategoryWithSpacing",
+          "group": "1_sorting@6",
+          "when": "resourceLangId == css || resourceLangId == html || resourceLangId == htm"
+        },
+        {
+          "command": "csssortify.extractCssFromHtml",
+          "group": "2_tools@1",
+          "when": "resourceLangId == html || resourceLangId == htm"
+        },
+        {
+          "command": "csssortify.convertInlineStylesToClasses",
+          "group": "2_tools@2",
+          "when": "resourceLangId == html || resourceLangId == htm"
+        },
+        {
+          "command": "csssortify.convertSelectedInlineStyleToClass",
+          "group": "2_tools@3",
+          "when": "resourceLangId == html || resourceLangId == htm"
+        },
+        {
+          "command": "csssortify.minifyCss",
+          "group": "2_tools@4",
+          "when": "resourceLangId == css"
+        },
+        {
+          "command": "csssortify.minifyCssInPlace",
+          "group": "2_tools@5",
+          "when": "resourceLangId == css"
         }
       ]
     },
     "keybindings": [
       {
         "command": "csssortify.sortByLength",
-        "key": "ctrl+alt+s",
-        "when": "editorTextFocus && resourceLangId == css"
+        "key": "ctrl+alt+f",
+        "when": "editorTextFocus && (resourceLangId == css || resourceLangId == html || resourceLangId == htm)"
       },
       {
         "command": "csssortify.sortByLengthAsc",
         "key": "ctrl+alt+a",
-        "when": "editorTextFocus && resourceLangId == css"
+        "when": "editorTextFocus && (resourceLangId == css || resourceLangId == html || resourceLangId == htm)"
       },
       {
         "command": "csssortify.sortAlphabetically",
         "key": "ctrl+alt+z",
-        "when": "editorTextFocus && resourceLangId == css"
+        "when": "editorTextFocus && (resourceLangId == css || resourceLangId == html || resourceLangId == htm)"
       },
       {
         "command": "csssortify.sortAlphabeticallyDesc",
         "key": "ctrl+alt+x",
+        "when": "editorTextFocus && (resourceLangId == css || resourceLangId == html || resourceLangId == htm)"
+      },
+      {
+        "command": "csssortify.sortByCategory",
+        "key": "ctrl+alt+c",
+        "when": "editorTextFocus && (resourceLangId == css || resourceLangId == html || resourceLangId == htm)"
+      },
+      {
+        "command": "csssortify.sortByCategoryWithSpacing",
+        "key": "ctrl+alt+shift+c",
+        "when": "editorTextFocus && (resourceLangId == css || resourceLangId == html || resourceLangId == htm)"
+      },
+      {
+        "command": "csssortify.extractCssFromHtml",
+        "key": "ctrl+alt+e",
+        "when": "editorTextFocus && (resourceLangId == html || resourceLangId == htm)"
+      },
+      {
+        "command": "csssortify.convertInlineStylesToClasses",
+        "key": "ctrl+alt+i",
+        "when": "editorTextFocus && (resourceLangId == html || resourceLangId == htm)"
+      },
+      {
+        "command": "csssortify.convertSelectedInlineStyleToClass",
+        "key": "ctrl+alt+shift+i",
+        "when": "editorTextFocus && (resourceLangId == html || resourceLangId == htm)"
+      },
+      {
+        "command": "csssortify.minifyCss",
+        "key": "ctrl+alt+m",
+        "when": "editorTextFocus && resourceLangId == css"
+      },
+      {
+        "command": "csssortify.minifyCssInPlace",
+        "key": "ctrl+alt+shift+m",
         "when": "editorTextFocus && resourceLangId == css"
       }
     ]
@@ -123,5 +239,5 @@
     "url": "https://github.com/MuratBilginerSoft/CssSortify/issues"
   },
   "homepage": "https://github.com/MuratBilginerSoft/CssSortify#readme",
-  "l10n": "./package.nls.json"
+  "l10n": "./Locales/package.nls.json"
 }

@@ -1,0 +1,13 @@
+{
+    "csssortify.description": "Сортировка CSS свойств по длине символов и в алфавитном порядке",
+    "csssortify.sortByLength.title": "CSS: Сортировать свойства по длине (по убыванию)",
+    "csssortify.sortByLengthAsc.title": "CSS: Сортировать свойства по длине (по возрастанию)",
+    "csssortify.sortAlphabetically.title": "CSS: Сортировать свойства по алфавиту (А-Я)",
+    "csssortify.sortAlphabeticallyDesc.title": "CSS: Сортировать свойства по алфавиту (Я-А)",
+    "csssortify.error.notCssFile": "Эта команда работает только в CSS файлах!",
+    "csssortify.error.noFileOpen": "Пожалуйста, откройте файл!",
+    "csssortify.success.lengthDesc": "CSS свойства отсортированы по длине (по убыванию)! 🎉",
+    "csssortify.success.lengthAsc": "CSS свойства отсортированы по длине (по возрастанию)! 🎉",
+    "csssortify.success.alphaAsc": "CSS свойства отсортированы по алфавиту (А-Я)! 🎉",
+    "csssortify.success.alphaDesc": "CSS свойства отсортированы по алфавиту (Я-А)! 🎉"
+}

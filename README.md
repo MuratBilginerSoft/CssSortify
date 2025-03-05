@@ -10,11 +10,13 @@ A VS Code extension that intelligently sorts CSS properties by length or alphabe
 
 ## ✨ Features
 
-- 🔄 **4 Different Sorting Options:**
+- 🔄 **Multiple Sorting Options:**
   - Sort by Length (Descending)
   - Sort by Length (Ascending)
   - Sort Alphabetically (A-Z)
   - Sort Alphabetically (Z-A)
+  - Sort by Category (Box Model, Positioning, Typography, etc.)
+  - Sort by Category with Spacing between groups
 
 - 🌈 **Smart CSS Formatting:**
   - Single space after colon (`color: red`)
@@ -22,26 +24,45 @@ A VS Code extension that intelligently sorts CSS properties by length or alphabe
   - Proper spacing for `!important` (`color: red !important`)
   - Clean up multiple spaces
 
+- 🧩 **CSS Minification:**
+  - Minify CSS and save as .min.css file (Ctrl+Alt+M)
+  - Minify CSS in-place (Ctrl+Alt+Shift+M)
+  - Remove comments, whitespace, and unnecessary characters
+
+- 📦 **HTML Integration:**
+  - Extract CSS from HTML to external file (Ctrl+Alt+E)
+  - Convert inline styles to classes (Ctrl+Alt+I)
+  - Convert selected element's inline style to class (Ctrl+Alt+Shift+I)
+  - Smart class naming with celestial body names
+
 - 🌍 **Multi-language Support:**
   - English
   - Turkish
   - German
+  - Russian
   - Chinese (Simplified)
   - Chinese (Traditional)
 
 ## 🚀 Usage
 
-1. Open your CSS file
+1. Open your CSS or HTML file
 2. Select the CSS block you want to sort (optional, entire file will be sorted if no selection)
 3. Use one of these shortcuts:
-   - `Ctrl+Alt+S`: Sort by length (descending)
+   - `Ctrl+Alt+F`: Sort by length (descending)
    - `Ctrl+Alt+A`: Sort by length (ascending)
    - `Ctrl+Alt+Z`: Sort alphabetically (A-Z)
    - `Ctrl+Alt+X`: Sort alphabetically (Z-A)
+   - `Ctrl+Alt+C`: Sort by category
+   - `Ctrl+Alt+Shift+C`: Sort by category with spacing
+   - `Ctrl+Alt+M`: Minify CSS and save as .min.css
+   - `Ctrl+Alt+Shift+M`: Minify CSS in-place
+   - `Ctrl+Alt+E`: Extract CSS from HTML to external file
+   - `Ctrl+Alt+I`: Convert all inline styles to classes
+   - `Ctrl+Alt+Shift+I`: Convert selected element's inline style to class
 
 Or:
-1. Right-click in your CSS file
-2. Select your preferred sorting option from the menu
+1. Right-click in your CSS or HTML file
+2. Select your preferred option from the CssSortify submenu
 
 ## 📝 Example
 
@@ -105,6 +126,32 @@ Or:
 }
 ```
 
+**5. Sort by Category:**
+```css
+.example {
+    margin: 20px;
+    padding: 0;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    position: relative !important;
+    background-color: #fff;
+    color: red;
+}
+```
+
+**6. Sort by Category with Spacing:**
+```css
+.example {
+    margin: 20px;
+    padding: 0;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    
+    position: relative !important;
+    
+    background-color: #fff;
+    color: red;
+}
+```
+
 ## ⚙️ Requirements
 
 - Visual Studio Code 1.85.0 or higher
@@ -129,11 +176,13 @@ CSS özelliklerini uzunluğa veya alfabetik sıraya göre akıllıca düzenleyen
 
 ## ✨ Özellikler
 
-- 🔄 **4 Farklı Sıralama Seçeneği:**
+- 🔄 **Çoklu Sıralama Seçenekleri:**
   - Uzunluğa Göre (Azalan)
   - Uzunluğa Göre (Artan)
   - Alfabetik (A-Z)
   - Alfabetik (Z-A)
+  - Kategoriye Göre (Kutu Modeli, Konumlandırma, Tipografi, vb.)
+  - Kategoriye Göre Aralıklı Sıralama
 
 - 🌈 **Akıllı CSS Formatı:**
   - Key-value arasında tek boşluk (`color: red`)
@@ -141,26 +190,45 @@ CSS özelliklerini uzunluğa veya alfabetik sıraya göre akıllıca düzenleyen
   - `!important` için düzgün boşluk (`color: red !important`)
   - Çoklu boşlukları temizleme
 
+- 🧩 **CSS Minifikasyonu:**
+  - CSS'i sıkıştırıp .min.css olarak kaydetme (Ctrl+Alt+M)
+  - CSS'i yerinde sıkıştırma (Ctrl+Alt+Shift+M)
+  - Yorumları, boşlukları ve gereksiz karakterleri kaldırma
+
+- 📦 **HTML Entegrasyonu:**
+  - HTML'den CSS'i harici dosyaya çıkarma (Ctrl+Alt+E)
+  - Inline stilleri class'lara dönüştürme (Ctrl+Alt+I)
+  - Seçili elementin inline stilini class'a dönüştürme (Ctrl+Alt+Shift+I)
+  - Gök cisimlerinden esinlenen akıllı class isimlendirme
+
 - 🌍 **Çoklu Dil Desteği:**
   - Türkçe
   - İngilizce
   - Almanca
+  - Rusça
   - Çince (Basitleştirilmiş)
   - Çince (Geleneksel)
 
 ## 🚀 Kullanım
 
-1. CSS dosyanızı açın
+1. CSS veya HTML dosyanızı açın
 2. Düzenlemek istediğiniz CSS bloğunu seçin (opsiyonel, seçim yapmazsanız tüm dosya düzenlenir)
 3. Aşağıdaki kısayollardan birini kullanın:
-   - `Ctrl+Alt+S`: Uzunluğa göre azalan sırada sırala
+   - `Ctrl+Alt+F`: Uzunluğa göre azalan sırada sırala
    - `Ctrl+Alt+A`: Uzunluğa göre artan sırada sırala
    - `Ctrl+Alt+Z`: Alfabetik sırala (A-Z)
    - `Ctrl+Alt+X`: Alfabetik sırala (Z-A)
+   - `Ctrl+Alt+C`: Kategoriye göre sırala
+   - `Ctrl+Alt+Shift+C`: Kategoriye göre aralıklı sırala
+   - `Ctrl+Alt+M`: CSS'i sıkıştır ve .min.css olarak kaydet
+   - `Ctrl+Alt+Shift+M`: CSS'i yerinde sıkıştır
+   - `Ctrl+Alt+E`: HTML'den CSS'i harici dosyaya çıkar
+   - `Ctrl+Alt+I`: Tüm inline stilleri class'lara dönüştür
+   - `Ctrl+Alt+Shift+I`: Seçili elementin inline stilini class'a dönüştür
 
 Ya da:
-1. CSS dosyanızda sağ tıklayın
-2. Menüden istediğiniz sıralama seçeneğini seçin
+1. CSS veya HTML dosyanızda sağ tıklayın
+2. CssSortify alt menüsünden istediğiniz seçeneği seçin
 
 ## 📝 Örnek
 
@@ -221,6 +289,35 @@ Ya da:
     color: red;
     border: 1px solid rgba(0, 0, 0, 0.1);
     background-color: #fff;
+}
+```
+
+**5. Kategoriye Göre:**
+```css
+.example {
+    margin: 20px;
+    padding: 0;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    position: relative !important;
+    background-color: #fff;
+    color: red;
+}
+```
+
+**6. Kategoriye Göre Aralıklı:**
+```css
+.example {
+    /* Kutu Modeli */
+    margin: 20px;
+    padding: 0;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    
+    /* Konumlandırma */
+    position: relative !important;
+    
+    /* Görsel/Renk */
+    background-color: #fff;
+    color: red;
 }
 ```
 
