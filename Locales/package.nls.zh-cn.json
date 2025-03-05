@@ -1,0 +1,13 @@
+{
+    "csssortify.description": "按字符长度和字母顺序排序CSS属性",
+    "csssortify.sortByLength.title": "CSS：按长度排序属性（降序）",
+    "csssortify.sortByLengthAsc.title": "CSS：按长度排序属性（升序）",
+    "csssortify.sortAlphabetically.title": "CSS：按字母顺序排序属性（A-Z）",
+    "csssortify.sortAlphabeticallyDesc.title": "CSS：按字母顺序排序属性（Z-A）",
+    "csssortify.error.notCssFile": "此命令仅适用于CSS文件！",
+    "csssortify.error.noFileOpen": "请打开一个文件！",
+    "csssortify.success.lengthDesc": "CSS属性已按长度降序排序！🎉",
+    "csssortify.success.lengthAsc": "CSS属性已按长度升序排序！🎉",
+    "csssortify.success.alphaAsc": "CSS属性已按字母顺序排序（A-Z）！🎉",
+    "csssortify.success.alphaDesc": "CSS属性已按字母顺序排序（Z-A）！🎉"
+}

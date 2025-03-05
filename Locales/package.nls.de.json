@@ -1,0 +1,13 @@
+{
+    "csssortify.description": "Sortieren Sie CSS-Eigenschaften nach Zeichenlänge und alphabetisch",
+    "csssortify.sortByLength.title": "CSS: Eigenschaften nach Länge sortieren (absteigend)",
+    "csssortify.sortByLengthAsc.title": "CSS: Eigenschaften nach Länge sortieren (aufsteigend)",
+    "csssortify.sortAlphabetically.title": "CSS: Eigenschaften alphabetisch sortieren (A-Z)",
+    "csssortify.sortAlphabeticallyDesc.title": "CSS: Eigenschaften alphabetisch sortieren (Z-A)",
+    "csssortify.error.notCssFile": "Dieser Befehl funktioniert nur in CSS-Dateien!",
+    "csssortify.error.noFileOpen": "Bitte öffnen Sie eine Datei!",
+    "csssortify.success.lengthDesc": "CSS-Eigenschaften nach Länge sortiert (absteigend)! 🎉",
+    "csssortify.success.lengthAsc": "CSS-Eigenschaften nach Länge sortiert (aufsteigend)! 🎉",
+    "csssortify.success.alphaAsc": "CSS-Eigenschaften alphabetisch sortiert (A-Z)! 🎉",
+    "csssortify.success.alphaDesc": "CSS-Eigenschaften alphabetisch sortiert (Z-A)! 🎉"
+}

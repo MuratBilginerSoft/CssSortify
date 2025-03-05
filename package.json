@@ -2,7 +2,7 @@
   "name": "csssortify",
   "displayName": "CssSortify",
   "description": "Smart CSS property sorter with multiple sorting options (length/alphabetical) and multi-language support. Keep your stylesheets clean and organized with intelligent formatting.",
-  "version": "0.3.0",
+  "version": "1.0.0",
   "publisher": "BrainyTech",
   "engines": {
     "vscode": "^1.85.0"
@@ -18,7 +18,10 @@
     "properties",
     "style",
     "css formatter",
-    "css sorter"
+    "css sorter",
+    "html",
+    "minify",
+    "inline styles"
   ],
   "galleryBanner": {
     "color": "#C80000",
@@ -35,27 +38,27 @@
     "commands": [
       {
         "command": "csssortify.sortByLength",
-        "title": "Sort CSS Properties by Length (Descending)"
+        "title": "Sort By Length (Descending)"
       },
       {
         "command": "csssortify.sortByLengthAsc",
-        "title": "Sort CSS Properties by Length (Ascending)"
+        "title": "Sort By Length (Ascending)"
       },
       {
         "command": "csssortify.sortAlphabetically",
-        "title": "Sort CSS Properties Alphabetically (A-Z)"
+        "title": "Sort Alphabetically (A-Z)"
       },
       {
         "command": "csssortify.sortAlphabeticallyDesc",
-        "title": "Sort CSS Properties Alphabetically (Z-A)"
+        "title": "Sort Alphabetically (Z-A)"
       },
       {
         "command": "csssortify.sortByCategory",
-        "title": "Sort CSS Properties by Category"
+        "title": "Sort By Category"
       },
       {
         "command": "csssortify.sortByCategoryWithSpacing",
-        "title": "Sort CSS Properties by Category with Spacing"
+        "title": "Sort By Category with Spacing"
       },
       {
         "command": "csssortify.extractCssFromHtml",
@@ -153,7 +156,7 @@
     "keybindings": [
       {
         "command": "csssortify.sortByLength",
-        "key": "ctrl+alt+s",
+        "key": "ctrl+alt+f",
         "when": "editorTextFocus && (resourceLangId == css || resourceLangId == html || resourceLangId == htm)"
       },
       {
@@ -174,6 +177,11 @@
       {
         "command": "csssortify.sortByCategory",
         "key": "ctrl+alt+c",
+        "when": "editorTextFocus && (resourceLangId == css || resourceLangId == html || resourceLangId == htm)"
+      },
+      {
+        "command": "csssortify.sortByCategoryWithSpacing",
+        "key": "ctrl+alt+shift+c",
         "when": "editorTextFocus && (resourceLangId == css || resourceLangId == html || resourceLangId == htm)"
       },
       {
@@ -231,5 +239,5 @@
     "url": "https://github.com/MuratBilginerSoft/CssSortify/issues"
   },
   "homepage": "https://github.com/MuratBilginerSoft/CssSortify#readme",
-  "l10n": "./package.nls.json"
+  "l10n": "./Locales/package.nls.json"
 }

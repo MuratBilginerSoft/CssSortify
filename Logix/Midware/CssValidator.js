@@ -1,13 +1,10 @@
 /**
- * CSS Validator module
- * Validates CSS selections and content
- */
-
-/**
  * Validates a CSS selection to ensure it's a complete and valid CSS block
+ 
  * @param {string} text - CSS text to validate
  * @returns {Object} - Validation result with valid flag and error message if invalid
- */
+*/
+
 function isValidCssSelection(text) {
     if (!text.trim()) {
         return { valid: false, error: 'Boş seçim' };
@@ -44,6 +41,4 @@ function isValidCssSelection(text) {
     return { valid: true };
 }
 
-module.exports = {
-    isValidCssSelection
-};
+module.exports = { isValidCssSelection };
