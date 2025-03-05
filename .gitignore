@@ -1,8 +1,7 @@
-<<<<<<< HEAD
 node_modules
 .vscode-test/
 *.vsix
-=======
+Vsix/
 # Logs
 logs
 *.log
@@ -133,4 +132,3 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
->>>>>>> ef1b36d0f0fa27b7c6db7fc9c45054b1442ef046
