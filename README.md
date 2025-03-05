@@ -10,11 +10,12 @@ A VS Code extension that intelligently sorts CSS properties by length or alphabe
 
 ## ✨ Features
 
-- 🔄 **4 Different Sorting Options:**
+- 🔄 **5 Different Sorting Options:**
   - Sort by Length (Descending)
   - Sort by Length (Ascending)
   - Sort Alphabetically (A-Z)
   - Sort Alphabetically (Z-A)
+  - Sort by Category (Box Model, Positioning, Typography, etc.)
 
 - 🌈 **Smart CSS Formatting:**
   - Single space after colon (`color: red`)
@@ -38,6 +39,7 @@ A VS Code extension that intelligently sorts CSS properties by length or alphabe
    - `Ctrl+Alt+A`: Sort by length (ascending)
    - `Ctrl+Alt+Z`: Sort alphabetically (A-Z)
    - `Ctrl+Alt+X`: Sort alphabetically (Z-A)
+   - `Ctrl+Alt+C`: Sort by category
 
 Or:
 1. Right-click in your CSS file
@@ -105,6 +107,23 @@ Or:
 }
 ```
 
+**5. Sort by Category:**
+```css
+.example {
+    /* Box Model */
+    margin: 20px;
+    padding: 0;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    
+    /* Positioning */
+    position: relative !important;
+    
+    /* Visual/Color */
+    background-color: #fff;
+    color: red;
+}
+```
+
 ## ⚙️ Requirements
 
 - Visual Studio Code 1.85.0 or higher
@@ -129,11 +148,12 @@ CSS özelliklerini uzunluğa veya alfabetik sıraya göre akıllıca düzenleyen
 
 ## ✨ Özellikler
 
-- 🔄 **4 Farklı Sıralama Seçeneği:**
+- 🔄 **5 Farklı Sıralama Seçeneği:**
   - Uzunluğa Göre (Azalan)
   - Uzunluğa Göre (Artan)
   - Alfabetik (A-Z)
   - Alfabetik (Z-A)
+  - Kategoriye Göre (Kutu Modeli, Konumlandırma, Tipografi, vb.)
 
 - 🌈 **Akıllı CSS Formatı:**
   - Key-value arasında tek boşluk (`color: red`)
@@ -157,6 +177,7 @@ CSS özelliklerini uzunluğa veya alfabetik sıraya göre akıllıca düzenleyen
    - `Ctrl+Alt+A`: Uzunluğa göre artan sırada sırala
    - `Ctrl+Alt+Z`: Alfabetik sırala (A-Z)
    - `Ctrl+Alt+X`: Alfabetik sırala (Z-A)
+   - `Ctrl+Alt+C`: Kategoriye göre sırala
 
 Ya da:
 1. CSS dosyanızda sağ tıklayın
@@ -221,6 +242,23 @@ Ya da:
     color: red;
     border: 1px solid rgba(0, 0, 0, 0.1);
     background-color: #fff;
+}
+```
+
+**5. Kategoriye Göre:**
+```css
+.example {
+    /* Kutu Modeli */
+    margin: 20px;
+    padding: 0;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    
+    /* Konumlandırma */
+    position: relative !important;
+    
+    /* Görsel/Renk */
+    background-color: #fff;
+    color: red;
 }
 ```
 
